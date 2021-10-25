@@ -1,0 +1,17 @@
+{
+  "author": "Alejandro Hernandez <alephoenix1985@gmail.com>",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "@phoenix-Software-Factory/core-pkg",
+  "publishConfig": {
+    "cache": "~/.npm",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": "https://github.com/Phoenix-Software-Factory/core-pkg.git",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.2"
+}
