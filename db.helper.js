@@ -26,12 +26,16 @@ export const clear$ = async (model) => (await _db).clear(model);
 export const keys$ = async (model) => (await _db).getAllKeys(model);
 export const all$ = async (model, key) => (await _db).getAll(model, key);
 export const bulkAdd$ = async (model, data) => {
-    const tx = (await _db).transaction(model, 'readwrite');
-    await Promise.all(data.map(d => tx.store.add(d)).concat(tx.done));
+    if (data && data.length) {
+        const tx = (await _db).transaction(model, 'readwrite');
+        await Promise.all(data.map(d => tx.store.add(d)).concat(tx.done));
+    }
 };
 export const bulkSet$ = async (model, data) => {
-    const tx = (await _db).transaction(model, 'readwrite');
-    await Promise.all(data.map(d => tx.store.put(d)).concat(tx.done));
+    if (data && data.length) {
+        const tx = (await _db).transaction(model, 'readwrite');
+        await Promise.all(data.map(d => tx.store.put(d)).concat(tx.done));
+    }
 };
 export const setIf$ = async (model, where, update, options) => {
     const whereKey = where && where.key;
